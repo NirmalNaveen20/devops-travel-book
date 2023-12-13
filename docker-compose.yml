@@ -1,14 +1,23 @@
 version: '3.7'
 services:
+  selenium:
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444:4444
+      - 5900:5900
   website:
    build:
     context: .
    ports:
-    - 80:80
+     - 80:80
   unit-tests:
     volumes:
       - "$PWD:/app"
     build:
       context: .
       dockerfile: respec.dockerfile
+    command:
+      - --patern 
+      - /app/spec/unit/*_spec.rb
+      
   

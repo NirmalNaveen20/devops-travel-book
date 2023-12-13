@@ -3,6 +3,7 @@ variable "domain_name" {
   default = "explorecalifornia.org"
 }
 
+
 data "aws_iam_policy_document" "bucket_policy" {
   statement {
     sid = "PublicReadGetObject"
